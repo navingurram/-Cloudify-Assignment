@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaChevronDown } from "react-icons/fa";
 
 const MultiSelectDropdown = () => {
   const [options, setOptions] = useState(["Option 1", "Option 2", "Option 3"]);
@@ -51,8 +51,8 @@ const MultiSelectDropdown = () => {
               style={{
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: "#e6f7ff",
-                borderRadius: "12px",
+                backgroundColor: "#d7d9d9",
+                borderRadius: "7px",
                 padding: "5px 10px",
                 border: "1px solid #ccc",
               }}
@@ -73,6 +73,16 @@ const MultiSelectDropdown = () => {
         ) : (
           "Select options"
         )}
+
+        <div
+          style={{
+            marginLeft: "auto",
+            transition: "transform 0.3s ease",
+            transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+        >
+          <FaChevronDown />
+        </div>
       </div>
 
       {dropdownOpen && (
@@ -127,7 +137,7 @@ const MultiSelectDropdown = () => {
               onChange={(e) => setNewOption(e.target.value)}
               style={{
                 flex: 1,
-                padding: "5px",
+                padding: "10px",
                 marginRight: "5px",
                 border: "1px solid #ccc",
                 borderRadius: "4px",
@@ -136,7 +146,7 @@ const MultiSelectDropdown = () => {
             <button
               onClick={addOption}
               style={{
-                padding: "10px 10px",
+                padding: "9px 15px",
                 border: "none",
                 backgroundColor: "black",
                 color: "white",

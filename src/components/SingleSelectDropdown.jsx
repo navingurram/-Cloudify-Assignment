@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaChevronDown } from "react-icons/fa";
 
 const SingleSelectDropdown = ({ options, selectedOption, onSelect }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -35,7 +35,7 @@ const SingleSelectDropdown = ({ options, selectedOption, onSelect }) => {
             style={{
               display: "flex",
               alignItems: "center",
-              backgroundColor: "#e6f7ff",
+              backgroundColor: "#d7d9d9",
               borderRadius: "12px",
               padding: "5px 10px",
               border: "1px solid #ccc",
@@ -54,6 +54,16 @@ const SingleSelectDropdown = ({ options, selectedOption, onSelect }) => {
         ) : (
           "Select an option"
         )}
+
+        <div
+          style={{
+            marginLeft: "auto", 
+            transition: "transform 0.3s ease",
+            transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+          }}
+        >
+          <FaChevronDown />
+        </div>
       </div>
 
       {dropdownOpen && (
